@@ -1,0 +1,121 @@
+#include "Arduino.h"
+#include "gRotaryEncoder.h"
+
+re::re()
+{
+	_re_init();
+}
+
+re::re(int i_pin1, int i_pin2)
+{
+	// Initialize with user-provided pins
+	_p1 = i_pin1;
+	_p2 = i_pin2;
+	_re_init();
+}
+
+bool re::readPins()
+{
+	// Read the pins, if anything has changed, set the dir and count, return true.
+	// Otherwise, return false, clear dir and count (both = 0)
+	if (millis() - _lastRead > debounce_timer)
+	{
+		// Debounce timer has expired, check the pins.
+		pin1_val = digitalRead(_p1);
+		pin2_val = digitalRead(_p2);
+		
+		if (pin1_val != _last_p1 || pin2_val != _last_p2)
+		{
+			// Pins have changed.
+			if (millis() - _lastDirSet > inactivity_timer)
+			{
+				// The user hasn't turned the knob in a while, determine initial direction.
+				steps = 1;
+				_dirSense();
+			}
+			else
+			{
+				// Direction is assumed to be previous direction
+				steps += 1;
+				_lastDirSet = millis();
+			}
+			
+			_last_p1 = pin1_val;
+			_last_p2 = pin2_val;
+			
+			return true;
+		}
+		else
+		{
+			// Pin values have not changed.  
+			return false;
+		}
+	}
+}
+
+void _dirSense()
+{
+	_lastDirSet = millis();
+	
+	if (_last_p1 == 0 && _last_p2 == 0)
+	{
+		if (pin1_val== 0 && pin2_val== 1)
+		{
+		  //counterclockwise
+		  direction = 2;					//CCW
+		}
+		else if (pin1_val== 1 && pin2_val== 1)
+		{
+		  // clockwise
+		  direction = 1;					//CW
+		}
+		else
+		{
+		  // unknown
+		  direction = 0;					//Unknown
+		}
+	}
+	else if (_last_p1 == 1 && _last_p2 ==1)
+	{
+		if (pin1_val== 0 && pin2_val== 0)
+		{
+		  //counterclockwise
+		  direction = 2;					//CCW
+		}
+		else if (pin1_val== 0 && pin2_val== 1)
+		{
+		  // clockwise
+		  direction = 1;					//CW
+		}
+		else
+		{
+		  // unknown
+		  direction = 0;					//Unknown
+		}
+	}
+	else if (_last_p1 == 0 && _last_p2 ==1)
+	{
+		if (pin1_val== 1 && pin2_val== 1)
+		{
+		  //counterclockwise
+		  direction = 2;					//CCW
+		}
+		else if (pin1_val== 0 && pin2_val== 0)
+		{
+		  // clockwise
+		  direction = 1;					//CW
+		}
+		else
+		{
+		  // unknown
+		  direction = 0;					//Unknown
+		}
+	}
+}
+
+void _re_init()
+{
+	// Initialize the object
+	pinMode(_p1, INPUT_PULLUP);
+	pinMode(_p2, INPUT_PULLUP);
+}
