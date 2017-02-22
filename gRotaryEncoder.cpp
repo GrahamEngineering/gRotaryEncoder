@@ -37,6 +37,9 @@ bool re::readPins()
 			else
 			{
 				// spinDirection is assumed to be previous spinDirection
+				
+				// Maybe add some logic in here to verify direction every 8 steps or so
+
 				steps++;
 				_lastDirSet = millis();
 			}
