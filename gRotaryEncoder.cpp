@@ -60,8 +60,8 @@ bool re::readPins()
 
 void re::reset()
 {
-	uint32_t steps = 0;
-	uint8_t spinDirection = 0;
+	steps = 0;
+	spinDirection = 0;
 }
 
 void re::_dirSense()
