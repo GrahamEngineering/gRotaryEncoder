@@ -1,6 +1,7 @@
 /*
  *  gRotaryEncoder.h
-*/
+ *
+ */
 #ifndef gRotaryEncoder_h
 #define gRotaryEncoder_h
 
