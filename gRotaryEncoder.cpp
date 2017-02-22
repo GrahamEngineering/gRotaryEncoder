@@ -66,7 +66,7 @@ void re::reset()
 
 bool re::spinComplete()
 {
-	if (millis() - _lastRead() > inactivity_timer)
+	if (millis() - _lastRead > inactivity_timer)
 	{
 		return true;
 	}
