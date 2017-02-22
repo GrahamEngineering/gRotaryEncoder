@@ -61,6 +61,8 @@ bool re::readPins()
 void re::reset()
 {
 	steps = 0;
+	pin1_val = digitalRead(_p1);
+	pin2_val = digitalRead(_p2);
 }
 
 void re::_dirSense()
@@ -128,4 +130,6 @@ void re::_re_init()
 	// Initialize the object
 	pinMode(_p1, INPUT_PULLUP);
 	pinMode(_p2, INPUT_PULLUP);
+	pin1_val = digitalRead(_p1);
+	pin2_val = digitalRead(_p2);
 }
