@@ -14,7 +14,7 @@ class re
 	//re(int, int, int, int);		// Init with user pins and timers
 	bool readPins();
 	uint32_t steps = 0;
-	uint8_t direction = 0;
+	uint8_t spinDirection = 0;
 	uint8_t pin1_val = 0;
 	uint8_t pin2_val = 0;
 	uint16_t debounce_timer = 3;

@@ -29,13 +29,13 @@ bool re::readPins()
 			// Pins have changed.
 			if (millis() - _lastDirSet > inactivity_timer)
 			{
-				// The user hasn't turned the knob in a while, determine initial direction.
+				// The user hasn't turned the knob in a while, determine initial spinDirection.
 				steps = 1;
 				_dirSense();
 			}
 			else
 			{
-				// Direction is assumed to be previous direction
+				// spinDirection is assumed to be previous spinDirection
 				steps += 1;
 				_lastDirSet = millis();
 			}
@@ -62,17 +62,17 @@ void re::_dirSense()
 		if (pin1_val== 0 && pin2_val== 1)
 		{
 		  //counterclockwise
-		  direction = 2;					//CCW
+		  spinDirection = 2;					//CCW
 		}
 		else if (pin1_val== 1 && pin2_val== 1)
 		{
 		  // clockwise
-		  direction = 1;					//CW
+		  spinDirection = 1;					//CW
 		}
 		else
 		{
 		  // unknown
-		  direction = 0;					//Unknown
+		  spinDirection = 0;					//Unknown
 		}
 	}
 	else if (_last_p1 == 1 && _last_p2 ==1)
@@ -80,17 +80,17 @@ void re::_dirSense()
 		if (pin1_val== 0 && pin2_val== 0)
 		{
 		  //counterclockwise
-		  direction = 2;					//CCW
+		  spinDirection = 2;					//CCW
 		}
 		else if (pin1_val== 0 && pin2_val== 1)
 		{
 		  // clockwise
-		  direction = 1;					//CW
+		  spinDirection = 1;					//CW
 		}
 		else
 		{
 		  // unknown
-		  direction = 0;					//Unknown
+		  spinDirection = 0;					//Unknown
 		}
 	}
 	else if (_last_p1 == 0 && _last_p2 ==1)
@@ -98,17 +98,17 @@ void re::_dirSense()
 		if (pin1_val== 1 && pin2_val== 1)
 		{
 		  //counterclockwise
-		  direction = 2;					//CCW
+		  spinDirection = 2;					//CCW
 		}
 		else if (pin1_val== 0 && pin2_val== 0)
 		{
 		  // clockwise
-		  direction = 1;					//CW
+		  spinDirection = 1;					//CW
 		}
 		else
 		{
 		  // unknown
-		  direction = 0;					//Unknown
+		  spinDirection = 0;					//Unknown
 		}
 	}
 }
