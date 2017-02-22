@@ -53,7 +53,7 @@ bool re::readPins()
 	}
 }
 
-void _dirSense()
+void re::_dirSense()
 {
 	_lastDirSet = millis();
 	
@@ -113,7 +113,7 @@ void _dirSense()
 	}
 }
 
-void _re_init()
+void re::_re_init()
 {
 	// Initialize the object
 	pinMode(_p1, INPUT_PULLUP);

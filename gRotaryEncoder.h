@@ -19,7 +19,6 @@ class re
 	uint8_t pin2_val = 0;
 	uint16_t debounce_timer = 3;
 	uint16_t inactivity_timer = 150;
-	
   private:
 	void _re_init();
 	void _dirSense();
