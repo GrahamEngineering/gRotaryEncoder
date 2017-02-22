@@ -14,6 +14,7 @@ class re
 	//re(int, int, int, int);		// Init with user pins and timers
 	bool readPins();
 	void reset();
+	bool spinComplete();
 	uint32_t steps = 0;
 	uint8_t spinDirection = 0;
 	uint8_t pin1_val = 0;

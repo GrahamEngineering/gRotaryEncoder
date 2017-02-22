@@ -64,6 +64,18 @@ void re::reset()
 	spinDirection = 0;
 }
 
+bool re::spinComplete()
+{
+	if (millis() - lastRead() > inactivity_timer)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
 void re::_dirSense()
 {
 	_lastDirSet = millis();
