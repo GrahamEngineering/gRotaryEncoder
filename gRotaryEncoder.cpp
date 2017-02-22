@@ -54,6 +54,7 @@ bool re::readPins()
 	}
 	else
 	{
+		steps = 0;
 		return false;
 	}
 }
