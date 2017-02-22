@@ -54,7 +54,6 @@ bool re::readPins()
 	}
 	else
 	{
-		_lastRead = millis();
 		return false;
 	}
 }
