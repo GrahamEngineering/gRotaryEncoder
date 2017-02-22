@@ -61,19 +61,6 @@ bool re::readPins()
 void re::reset()
 {
 	steps = 0;
-	spinDirection = 0;
-}
-
-bool re::spinComplete()
-{
-	if (millis() - _lastRead > inactivity_timer)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
 }
 
 void re::_dirSense()
