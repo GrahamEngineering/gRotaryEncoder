@@ -18,6 +18,7 @@ bool re::readPins()
 {
 	// Read the pins, if anything has changed, set the dir and count, return true.
 	// Otherwise, return false, clear dir and count (both = 0)
+	
 	if (millis() - _lastRead > debounce_timer)
 	{
 		// Debounce timer has expired, check the pins.
@@ -36,7 +37,6 @@ bool re::readPins()
 			else
 			{
 				// spinDirection is assumed to be previous spinDirection
-				steps += 1;
 				_lastDirSet = millis();
 			}
 			
