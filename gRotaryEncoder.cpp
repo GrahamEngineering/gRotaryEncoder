@@ -51,6 +51,10 @@ bool re::readPins()
 			return false;
 		}
 	}
+	else
+	{
+		return false;
+	}
 }
 
 void re::_dirSense()
