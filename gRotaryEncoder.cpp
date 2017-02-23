@@ -32,6 +32,7 @@ bool re::readPins()
 			{
 				// The user hasn't turned the knob in a while, determine initial spinDirection.
 				steps = 1;
+				count = steps;
 				_dirSense();
 			}
 			else
@@ -41,6 +42,7 @@ bool re::readPins()
 				// Maybe add some logic in here to verify direction every 8 steps or so
 
 				steps++;
+				count = steps;
 				_lastDirSet = millis();
 			}
 			
@@ -58,6 +60,7 @@ bool re::readPins()
 	else
 	{
 		steps = 0;
+		count = steps;
 		return false;
 	}
 }
@@ -65,6 +68,7 @@ bool re::readPins()
 void re::reset()
 {
 	steps = 0;
+	count = steps;
 	pin1_val = digitalRead(_p1);
 	pin2_val = digitalRead(_p2);
 }
