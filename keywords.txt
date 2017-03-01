@@ -1,0 +1,29 @@
+#######################################
+# Syntax Coloring Map
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+gRotaryEncoder	KEYWORD1
+re	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+re	KEYWORD2
+readPins	KEYWORD2
+reset	KEYWORD2
+
+######################################
+# Constants (LITERAL1)
+#######################################
+steps	KEYWORD3
+count	KEYWORD3
+spinDirection	KEYWORD3
+pin1_val	KEYWORD3
+pin2_val	KEYWORD3
+debounce_timer	KEYWORD3
+inactivity_timer	KEYWORD3
+

@@ -33,5 +33,6 @@ class re
 	uint32_t 	_lastDirSet = 0;
 };
 
+typedef re gRotaryEncoder;
 
 #endif
