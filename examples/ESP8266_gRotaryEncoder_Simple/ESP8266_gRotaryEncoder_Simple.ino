@@ -2,7 +2,7 @@
     Rotary Encoder Example
     
     Encoder is connected to +3.3V in to the common
-        Encoder has 3 pins, A is bit 1, B is bit 2 and C is output
+        Encoder has 3 pins, A is bit 1, B is bit 2 and C is input
             
                              _____
               (D5 - 14)  A -|     |
