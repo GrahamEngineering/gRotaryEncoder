@@ -29,8 +29,8 @@ class re
 	uint32_t 	_p2 = D6;
 	uint32_t 	_last_p1 = 0;
 	uint32_t 	_last_p2 = 0;
-	uint32_t 	_lastRead = 0;
-	uint32_t 	_lastDirSet = 0;
+	unsigned long 	_lastRead = 0;
+	unsigned long 	_lastDirSet = 0;
 };
 
 typedef re gRotaryEncoder;
